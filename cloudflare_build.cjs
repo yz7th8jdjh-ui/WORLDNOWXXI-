@@ -41,6 +41,6 @@ fs.writeFileSync(
   )
 );
 
-run("npx opennextjs-cloudflare build");
+run("npx opennextjs-cloudflare build --skipNextBuild");
 
 console.log("\n✅ WORLDNOWXXI CLOUDFLARE BUILD COMPLETADO\n");
