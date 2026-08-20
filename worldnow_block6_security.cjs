@@ -14,7 +14,7 @@ try{execSync('npm pkg delete devDependencies.@opennextjs/cloudflare',{stdio:"inh
 for(const f of ["open-next.config.ts","wrangler.jsonc"]){
  try{fs.rmSync(path.join(process.cwd(),f),{force:true})}catch{}
 }
-
+execSync('npm pkg set dependencies."@peculiar/asn1-x509"="2.9.0"', {stdio:"inherit"});
 execSync('npm install --legacy-peer-deps',{stdio:"inherit"});
 console.log("WORLDNOWXXI SECURITY RELEASE PREP applied");
 console.log("Next.js target: 15.5.21");
