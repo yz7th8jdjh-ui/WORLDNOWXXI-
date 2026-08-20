@@ -14,7 +14,26 @@ run(
 
 fs.writeFileSync(
   "open-next.config.ts",
-  'import { defineCloudflareConfig } from "@opennextjs/cloudflare";\n\nexport default defineCloudflareConfig();\n'
+  'import { defineCloudflareConfig } from "@opennextjs/cloudflare";\nexport default defineCloudflareConfig();\n'
+);
+
+fs.writeFileSync(
+  "wrangler.jsonc",
+  JSON.stringify(
+    {
+      $schema: "./node_modules/wrangler/config-schema.json",
+      name: "worldnowxxi",
+      main: ".open-next/worker.js",
+      compatibility_date: "2026-08-20",
+      compatibility_flags: ["nodejs_compat"],
+      assets: {
+        directory: ".open-next/assets",
+        binding: "ASSETS"
+      }
+    },
+    null,
+    2
+  )
 );
 
 run("npx opennextjs-cloudflare build --skipNextBuild");
